@@ -15,11 +15,12 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 
 ---
 ## 1. [Instalación](#agenda)
+Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso si ya está instalado, probablemente sea una buena idea actualizar a la última versión.
 
 ## 1.1. Instalación de WSL ✔
 
 
-## 1.2. Instalación de git dentro de WSL ✔
+## 1.2. Instalación de git en Linux o dentro de WSL ✔
 * Eliminar versiones antiguas de GIT.
 * Agregar repositorio PPA Oficial.
 * Actualizar lista de paquetes.
@@ -35,6 +36,7 @@ sudo apt update && sudo apt install git-all -y
 # Verifique la versión
 git --version
 ```
+
 ## 1.3. Pasos adicionales ✔
 * Crear una cuenta en [github][13_1].
 * Instalar [VSCode][13_2]
@@ -46,8 +48,11 @@ git --version
 [13_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [13_4]:https://github.com/new
 
+
 ```bash
 echo $SHELL
+ls -hal /usr/share/git-core/contrib/
+
 ```
 
 

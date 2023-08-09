@@ -17,8 +17,19 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 ## 1. [Instalación](#agenda)
 Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso si ya está instalado, probablemente sea una buena idea actualizar a la última versión.
 
-## 1.1. Instalación de WSL ✔
+## 1.1. Instalación de WSL para desarrollo ✔
+* Instale el [subsistema Linux][11_1] para Windows.
+* Seleccione una version de Linux [compatible con desarrollo remoto][11_2].
+* Instale [distribución de Linux][11_3] elegida.
+* Instale [Visual Studio Code][11_4] en Windows.
+* Instale la [extensión WSL][11_5] o el [paquete para desarrollo remoto][11_6].
 
+[11_1]:https://learn.microsoft.com/es-mx/windows/wsl/install
+[11_2]:https://code.visualstudio.com/docs/remote/linux
+[11_3]:https://apps.microsoft.com/store/detail/ubuntu-22042-lts/9PN20MSR04DW
+[11_4]:https://code.visualstudio.com/download
+[11_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[11_6]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 
 ## 1.2. Instalación de git en Linux o dentro de WSL ✔
 * Eliminar versiones antiguas de GIT.

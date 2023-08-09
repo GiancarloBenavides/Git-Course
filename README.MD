@@ -22,8 +22,8 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 ## 1.2. Instalación de git dentro de WSL ✔
 * Eliminar versiones antiguas de GIT.
 * Agregar repositorio PPA Oficial.
-* Actualice su sistema Linux.
-
+* Actualizar lista de paquetes.
+* Instalar la ultima version de git.
 
 ```bash
 # Eliminar versiones antiguas de GIT
@@ -34,37 +34,40 @@ sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt update && sudo apt install git-all -y
 # Verifique la versión
 git --version
-
-
 ```
+## 1.3. Pasos adicionales ✔
+* Crear una cuenta en [github][13_1].
+* Instalar [VSCode][13_2]
+* Instalar la [extension de github][13_3] para VScode.
+* Crear un [repositorio nuevo][13_4] en Github.
+
+[13_1]:https://github.com/
+[13_2]:https://code.visualstudio.com/download
+[13_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+[13_4]:https://github.com/new
+
 ```bash
 echo $SHELL
 ```
 
 
-1. Instalar [VSCode][1_1]
-2. Instalar [Git][1_2]
-3. Crear una cuenta en [github][1_3]
-4. Crear un [repositorio nuevo][1_4] en Github llamado <code>Redes-dos</code>
-5. Instalar la [extension de github][1_5] para VScode
-6. Agregar <code>Usuario</code> y <code>Correo</code> globalmente para Git.
-
-[1_1]:https://code.visualstudio.com/download
+Instalar [Git][1_2]
 [1_2]:https://git-scm.com/download/win
-[1_3]:https://github.com/
-[1_4]:https://github.com/new
-[1_5]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+
+
+
+
+
+## 2. [Configuración](#agenda)
+* Agregar <code>Usuario</code> y <code>Correo</code> globalmente para Git.
+* clonar el repositorio remoto desde VScode.
+
 
 ```bash
 # Para agregar Usuario y Contraseña a GIT
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 ```
-
-## 2. [Configuración](#agenda)
-
-7. Cerrar carpeta y clonar el repositorio remoto desde VScode.
-8. Crear una carpeta en el repositorio Redes-dos llamada <code>Laboratorio-uno</code>.
 
 ## 2.1. Excluir archivos y carpetas ✔
 * Puedes configurar [Git][21_1] para que ignore archivos que no quieres indexar.

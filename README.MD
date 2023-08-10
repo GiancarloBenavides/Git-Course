@@ -17,25 +17,82 @@ Se llama control de versiones a la gestión de los diversos cambios que se reali
 ## 1. [Instalación](#agenda)
 Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso si ya está instalado, probablemente sea una buena idea actualizar a la última versión.
 
-## 1.1. Instalación de WSL para desarrollo ✔
-* Instale el [subsistema Linux][11_1] para Windows.
-* Seleccione una version de Linux [compatible con desarrollo remoto][11_2].
-* Instale [distribución de Linux][11_3] elegida.
-* Instale [Visual Studio Code][11_4] en Windows.
-* Instale la [extensión WSL][11_5] o el [paquete para desarrollo remoto][11_6].
+![Arquitectura WSL](https://code.visualstudio.com/assets/docs/remote/wsl/architecture-wsl.png)
 
-[11_1]:https://learn.microsoft.com/es-mx/windows/wsl/install
-[11_2]:https://code.visualstudio.com/docs/remote/linux
-[11_3]:https://apps.microsoft.com/store/detail/ubuntu-22042-lts/9PN20MSR04DW
-[11_4]:https://code.visualstudio.com/download
-[11_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
-[11_6]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+## 1.1. Habilitar pre-requisitos para WSL en Windows ✔
+* Habilitar [virtualización por hardware][11_1] sino esta habilitado. 
+* Activar plataforma [Hyper-V][11_2] para virtualización.
+* Activar el [subsistema Linux][11_3] para Windows.
+* Instalar [windows Terminal][11_4] de Microsoft.
+* Elegir una distribución [compatible][11_5] con desarrollo remoto.
 
-## 1.2. Instalación de git en Linux o dentro de WSL ✔
+[11_1]:https://community.acer.com/kb/articles/14750
+[11_2]:https://support.microsoft.com/es-es/windows/habilitar-la-virtualizaci%C3%B3n-en-equipos-windows-11-c5578302-6e43-4b4b-a449-8ced115f58e1
+[11_3]:https://learn.microsoft.com/es-mx/windows/wsl/install
+[11_4]:https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=es-co&gl=co&rtc=1
+[11_5]:https://apps.microsoft.com/store/detail/ubuntu-22042-lts/9PN20MSR04DW
+
+
+### 1.1.1. Comandos.
+
+```ps
+# Habilitar Hyper-V en windows 10
+pushd "%~dp0"
+dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txt
+for /f %%i in ('findstr /i . hyper-v.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i"
+del hyper-v.txt
+Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
+pause
+# Activar WSL
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+# Lista de las distribuciones de Linux disponibles
+wsl --list --online
+```
+
+
+## 1.2. Instalación de WSL para desarrollo ✔
+* Instalar [subsistema Linux][12_1] para Windows.
+* Instalar [distribución de Linux][12_2] elegida.
+* Instalar [visual studio code][12_3] en Windows.
+* Instalar [extensión WSL][12_4] o el [paquete para desarrollo remoto][12_5].
+
+[12_1]:https://learn.microsoft.com/es-mx/windows/wsl/install
+[12_2]:https://code.visualstudio.com/docs/remote/linux
+[12_3]:https://code.visualstudio.com/download
+[12_4]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[12_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+
+
+### 1.2.1. Comandos.
+
+```ps
+# Instalar WSL
+# El comando --install realiza las acciones siguientes:
+#   * Habilita los componentes opcionales de WSL.
+#   * Descarga e instala el kernel de Linux más reciente.
+#   * Establece WSL 2 como valor predeterminado.
+#   * Descarga e instala la distribución de Ubuntu Linux
+wsl --install
+# Nota: es posible que sea necesario reiniciar
+```
+```bash
+#   * Mantener la distribución WSL actualizada
+sudo apt update && sudo apt upgrade
+#   * Prueba la siguiente tubería de comandos en WSL
+ipconfig.exe | grep -a IPv4 | cut -d: -f2
+```
+```ps
+#   * Prueba la siguiente tubería de comandos en Windows
+ipconfig | wsl grep -a IPv4 | wsl cut -d: -f2
+```
+
+## 1.3. Instalación de git en Linux o dentro de WSL ✔
 * Eliminar versiones antiguas de GIT.
 * Agregar repositorio PPA Oficial.
 * Actualizar lista de paquetes.
 * Instalar la ultima version de git.
+
+### 1.3.1. Comandos.
 
 ```bash
 # Eliminar versiones antiguas de GIT
@@ -63,6 +120,8 @@ git --version
 ```bash
 echo $SHELL
 ls -hal /usr/share/git-core/contrib/
+find / -type d -name 'httpdocs'
+sudo nano -l /usr/lib/git-core/git-sh-prompt
 
 ```
 
@@ -113,6 +172,7 @@ $ git config --global user.email johndoe@example.com
 
 ---
 ## Mas Recursos
-- [GIt Book](https://git-scm.com/book/en/v2) (Wikipedia)
-- [Reference](https://git-scm.com/docs) (Wikipedia)
+- [Hyper-V](https://es.wikipedia.org/wiki/Hyper-V) (Wikipedia)
+- [GIt Book](https://git-scm.com/book/en/v2) (Git-scm)
+- [Reference](https://git-scm.com/docs) (Git-scm)
 - [Video-curso](https://www.youtube.com/watch?v=GwkgaANyjjw&list=PLTd5ehIj0goMCnj6V5NdzSIHBgrIXckGU) (YouTube)

@@ -19,6 +19,8 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso
 
 ![Arquitectura WSL](https://code.visualstudio.com/assets/docs/remote/wsl/architecture-wsl.png)
 
+[1]:https://es.wikipedia.org/wiki/Git
+
 ## 1.1. Habilitar pre-requisitos para WSL en Windows ✔
 * Habilitar [virtualización por hardware][11_1] sino esta habilitado. 
 * Activar plataforma [Hyper-V][11_2] para virtualización.

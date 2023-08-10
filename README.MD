@@ -32,6 +32,7 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso
 [11_4]:https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=es-co&gl=co&rtc=1
 [11_5]:https://apps.microsoft.com/store/detail/ubuntu-22042-lts/9PN20MSR04DW
 
+>Nota: Versiones superiores a Windows 10.19041 y Windows 11.22621
 
 ### 1.1.1. Comandos.
 
@@ -49,18 +50,19 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 wsl --list --online
 ```
 
-
 ## 1.2. Instalación de WSL para desarrollo ✔
 * Instalar [subsistema Linux][12_1] para Windows.
 * Instalar [distribución de Linux][12_2] elegida.
-* Instalar [visual studio code][12_3] en Windows.
-* Instalar [extensión WSL][12_4] o el [paquete para desarrollo remoto][12_5].
+* Instalar y [configurar nano][12_3] en WSL. 
+* Instalar [visual studio code][12_4] en Windows.
+* Instalar [extensión WSL][12_5] o el [paquete para desarrollo remoto][12_6].
 
 [12_1]:https://learn.microsoft.com/es-mx/windows/wsl/install
 [12_2]:https://code.visualstudio.com/docs/remote/linux
-[12_3]:https://code.visualstudio.com/download
-[12_4]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
-[12_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+[12_3]:https://ubunlog.com/nanorc-configura-editor-texto/
+[12_4]:https://code.visualstudio.com/download
+[12_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[12_6]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 
 
 ### 1.2.1. Comandos.
@@ -72,6 +74,7 @@ wsl --list --online
 #   * Descarga e instala el kernel de Linux más reciente.
 #   * Establece WSL 2 como valor predeterminado.
 #   * Descarga e instala la distribución de Ubuntu Linux
+wsl --update
 wsl --install
 # Nota: es posible que sea necesario reiniciar
 ```
@@ -118,7 +121,10 @@ git --version
 
 
 ```bash
+lsb_release -a
 echo $SHELL
+git --version
+
 ls -hal /usr/share/git-core/contrib/
 find / -type d -name 'httpdocs'
 sudo nano -l /usr/lib/git-core/git-sh-prompt

@@ -122,14 +122,14 @@ git config --global user.email gncdev@dominio.com
 * Crear una cuenta en [GitHub][14_1].
 * Crear una [clave publica][14_2] en wsl.
 * Registra la [clave publica][14_3] en Github.
-* Crear un [repositorio nuevo][14_4] en GitHub.
-* Clonar [repositorio][14_5] desde Wsl.
+* Crear un [repositorio][14_4] o [clonar][14_5] uno desde GitHub.
 
 [14_1]:https://github.com/
 [14_2]:https://docs.github.com/es/authentication/connecting-to-github-with-ssh
 [14_3]:https://github.com/settings/ssh/new
 [14_4]:https://github.com/new
 [14_5]:https://github.com/GiancarloBenavides/Git-Course.git
+
 
 ### 1.4.1. Comandos.
 
@@ -141,6 +141,7 @@ eval $(ssh-agent -s)                # start ssh-agent in background
 ssh-add ~/.ssh/id_github
 # Clonar un repositorio remoto por ssh sin usuario y contraseña
 git clone git@github.com:GiancarloBenavides/Git-Course.git
+git remote -v
 git fetch
 ```
 

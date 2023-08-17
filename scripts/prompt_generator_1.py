@@ -17,13 +17,6 @@ colors = {
     "Custom": "8",
 }
 
-for color in colors:
-    foreground.add(color, prefix+colors[color]+sufix)
-
-    
-    foreground[color] = 
-
-
 foreground = {
     "Black": "0;30",
     "Red": "0;31",
@@ -42,27 +35,27 @@ foreground = {
     "Light Blue": "1;34",
     "Light Purple": "1;35",
     "Light Cyan": "1;36",
-    "White": "1;37",
-
+    "White": "1;37"
 }
 
 background = {
     "Black": "0;40",
-    "Dark Gray": "1;40",
-    "Light Gray": "0;47",
-    "White": "1;47",
-    "Blue": "0;44",
-    "Light Blue": "1;44",
-    "Green": "0;42",
-    "Light Green": "1;42",
-    "Cyan": "0;46",
-    "Light Cyan": "1;46",
     "red": "0;41",
-    "Light Red": "1;41",
-    "Purple": "0;45",
-    "Light Purple": "1;45",
+    "Green": "0;42",
     "Brown": "0;43",
-    "Yellow": "1;43"
+    "Blue": "0;44",
+    "Purple": "0;45",
+    "Cyan": "0;46",
+    "Light Gray": "0;47",
+
+    "Dark Gray": "1;40",
+    "Light Red": "1;41",
+    "Light Green": "1;42",
+    "Yellow": "1;43",
+    "Light Blue": "1;44",
+    "Light Purple": "1;45",
+    "Light Cyan": "1;46",
+    "White": "1;47"
 }
 
 for item in foreground:
@@ -85,8 +78,6 @@ profundidad1 = r"$(expr length ${PWD//[!\/]})"
 profundidad2 = r"$(expr ${PWD//[!\/]} :'.*')"
 profundidad3 = r"$(echo $str | wc -c)"
 profundidad4 = r"$(pwd | grep -o '/' - | wc -l)/"
-
-
 
 
 ps1 = foreground["Yellow"]+username+foreground["Light Gray"]+separator+foreground["Light Blue"]+profundidad1 + \

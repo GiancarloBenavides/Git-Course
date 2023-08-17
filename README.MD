@@ -56,20 +56,16 @@ wsl --list --online
 * Instalar [subsistema Linux][12_1] para Windows.
 * Instalar [distribución de Linux][12_2] elegida.
 * Instalar y [configurar nano][12_3] en WSL. 
-* Instalar [visual studio code][12_4] en Windows.
-* Instalar [extensión WSL][12_5] o el [paquete para desarrollo remoto][12_6].
 
 [12_1]:https://learn.microsoft.com/es-mx/windows/wsl/install
 [12_2]:https://code.visualstudio.com/docs/remote/linux
 [12_3]:https://ubunlog.com/nanorc-configura-editor-texto/
-[12_4]:https://code.visualstudio.com/download
-[12_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
-[12_6]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
-
 
 ### 1.2.1. Comandos.
 
 ```ps
+# EN POWERSHELL DE WINDOWS
+# ------------------------
 # Instalar WSL
 # El comando --install realiza las acciones siguientes:
 #   * Habilita los componentes opcionales de WSL.
@@ -80,13 +76,21 @@ wsl --update
 wsl --install
 # Nota: es posible que sea necesario reiniciar
 ```
+
 ```bash
+# EN BASH DE WSL
+# --------------
 #   * Mantener la distribución WSL actualizada
 sudo apt update && sudo apt upgrade
+#   * Instalar nano
+sudo apt install nano
 #   * Prueba la siguiente tubería de comandos en WSL
 ipconfig.exe | grep -a IPv4 | cut -d: -f2
 ```
+
 ```ps
+# EN POWERSHELL DE WINDOWS
+# ------------------------
 #   * Prueba la siguiente tubería de comandos en Windows
 ipconfig | wsl grep -a IPv4 | wsl cut -d: -f2
 ```
@@ -110,20 +114,55 @@ sudo apt update && sudo apt install git-all -y
 # Verifique la versión
 git --version
 # Para agregar usuario y correo globales a GIT
-$ git config --global user.name "GncDev"
-$ git config --global user.email gncdev@dominio.com
+git config --global user.name "GncDev"
+git config --global user.email gncdev@dominio.com
 ```
 
 ## 1.4. Agregar GitHub ✔
 * Crear una cuenta en [GitHub][14_1].
-* Crear un [repositorio nuevo][14_2] en GitHub.
-* Instalar la [extension de GitHub][14_3] para VScode.
-* Clonar [repositorio][14_4] desde VScode.
+* Crear una [clave publica][14_2] en wsl.
+* Registra la [clave publica][14_3] en Github.
+* Crear un [repositorio nuevo][14_4] en GitHub.
+* Clonar [repositorio][14_5] desde Wsl.
 
 [14_1]:https://github.com/
-[14_2]:https://github.com/new
+[14_2]:https://docs.github.com/es/authentication/connecting-to-github-with-ssh
+[14_3]:https://github.com/settings/ssh/new
+[14_4]:https://github.com/new
+[14_5]:https://github.com/GiancarloBenavides/Git-Course.git
+
+### 1.4.1. Comandos.
+
+```bash
+# Crear una clave publica
+mkdir ~/.ssh && cd ~/.ssh
+
+id
+ssh-keygen -t ed25519 -f id_github  # sever_name=file=github, pass=***
+eval $(ssh-agent -s)                # start ssh-agent in background
+ssh-add ~/.ssh/id_github
+# Crear un nuevo repositorio local
+git init
+# Clonar un repositorio remoto por http con usuario y contraseña
+git clone https://github.com/GiancarloBenavides/Git-Course.git
+# Clonar un repositorio remoto por http con usuario y contraseña
+git clone https://github.com/GiancarloBenavides/Git-Course.git
+```
+
+## 1.4. Instalación del editor de código ✔
+* Instalar [visual studio code][13_1] en Windows.
+* Instalar [extensión WSL][13_2] o el [paquete para desarrollo remoto][13_3].
+* Instalar [extension para corregir ortografía][13_4] y la [extension del idioma][13_5].
+* Instalar la [extension de GitHub][14_3] para VScode.
+
+[13_1]:https://code.visualstudio.com/download
+[13_2]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[13_3]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+[13_4]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[13_5]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
 [14_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
-[14_4]:https://github.com/GiancarloBenavides/Git-Course.git
+
+
 
 ## 2. [Configuración](#agenda)
 Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso si ya está instalado, probablemente sea una buena idea actualizar a la última versión.

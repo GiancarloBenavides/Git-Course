@@ -61,7 +61,7 @@ wsl --list --online
 [12_2]:https://code.visualstudio.com/docs/remote/linux
 [12_3]:https://ubunlog.com/nanorc-configura-editor-texto/
 
-### 1.2.1. Comandos.
+### 1.2.1. Comandos instalación.
 
 ```ps
 # EN POWERSHELL DE WINDOWS
@@ -71,22 +71,26 @@ wsl --list --online
 #   * Habilita los componentes opcionales de WSL.
 #   * Descarga e instala el kernel de Linux más reciente.
 #   * Establece WSL 2 como valor predeterminado.
-#   * Descarga e instala la distribución de Ubuntu Linux
+#   * Descarga e instala la distribución de Ubuntu Linux.
 wsl --update
 wsl --install
-# Nota: es posible que sea necesario reiniciar
+# Nota: es posible que sea necesario reiniciar.
 ```
+
+### 1.2.2. Comandos actualización y prueba.
 
 ```bash
 # EN BASH DE WSL
 # --------------
-#   * Mantener la distribución WSL actualizada
+#   * Mantener la distribución WSL actualizada.
 sudo apt update && sudo apt upgrade
-#   * Instalar nano
+#   * Instalar nano.
 sudo apt install nano
-#   * Prueba la siguiente tubería de comandos en WSL
+#   * Prueba la siguiente tubería de comandos en WSL.
 ipconfig.exe | grep -a IPv4 | cut -d: -f2
 ```
+
+### 1.2.2. Comandos prueba desde windows.
 
 ```ps
 # EN POWERSHELL DE WINDOWS
@@ -95,12 +99,14 @@ ipconfig.exe | grep -a IPv4 | cut -d: -f2
 ipconfig | wsl grep -a IPv4 | wsl cut -d: -f2
 ```
 
+
 ## 1.3. Instalación de Git en Linux o dentro de WSL ✔
 * Eliminar versiones antiguas de Git incluidas en la distribución.
 * Agregar repositorio oficial de los mantenedores de Git.
 * Actualizar lista de paquetes.
 * Instalar la ultima version de Git.
 * Agregar un <code>usuario</code> y un <code>correo</code> globalmente para Git.
+
 
 ### 1.3.1. Comandos.
 
@@ -122,7 +128,8 @@ git config --global user.email gncdev@dominio.com
 * Crear una cuenta en [GitHub][14_1].
 * Crear una [clave publica][14_2] en wsl.
 * Registra la [clave publica][14_3] en Github.
-* Crear un [repositorio][14_4] o [clonar][14_5] uno desde GitHub.
+* Crear un repositorio [nuevo][14_4] en github.
+* Clonar este [repositorio][14_5] desde wsl.
 
 [14_1]:https://github.com/
 [14_2]:https://docs.github.com/es/authentication/connecting-to-github-with-ssh
@@ -131,14 +138,24 @@ git config --global user.email gncdev@dominio.com
 [14_5]:https://github.com/GiancarloBenavides/Git-Course.git
 
 
-### 1.4.1. Comandos.
+### 1.4.1. Comandos agregar key a ssh.
 
 ```bash
 # Crear una clave publica
 mkdir ~/.ssh && cd ~/.ssh
-ssh-keygen -t ed25519 -f id_github  # sever_name=file=github, pass=***
-eval $(ssh-agent -s)                # start ssh-agent in background
+ssh-keygen -t ed25519 -f id_github  	# sever_name=file=github, pass=***
+eval $(ssh-agent -s)                	# start ssh-agent in background
 ssh-add ~/.ssh/id_github
+# Probar SSH con el repositorio remoto (sin usuario y contraseña)
+git clone git@github.com:GiancarloBenavides/Git-Course.git
+git remote -v
+git fetch
+```
+
+
+### 1.4.2. Comandos para crear y enviar un repositorio local.
+
+```bash
 # Crear un repositorio y enviar cambios
 mkdir ~/repositorio && cd ~/repositorio
 git init
@@ -147,16 +164,17 @@ git add .
 git commit -m "feat: readme initial commit"
 git remote add origin git@github.com:GiancarloBenavides/repositorio
 git push origin master
-# Clonar un repositorio remoto por ssh sin usuario y contraseña
-git clone git@github.com:GiancarloBenavides/Git-Course.git
-git remote -v
-git fetch
 ```
+
 
 ## 1.4. Instalación del editor de código ✔
 * Instalar [visual studio code][13_1] en Windows.
+	* (Agregar abrir con code a los menus contextuales).
+	* (Agregar code al PATH code a los menus contextuales).
 * Instalar [extensión WSL][13_2] o el [paquete para desarrollo remoto][13_3].
+* conectar code con wsl.
 * Instalar [extension para corregir ortografía][13_4] y la [extension del idioma][13_5].
+	* Habilitar el diccionario de español.
 * Instalar la [extension de GitHub][14_3] para VScode.
 
 [13_1]:https://code.visualstudio.com/download

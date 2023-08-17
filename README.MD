@@ -91,11 +91,12 @@ ipconfig.exe | grep -a IPv4 | cut -d: -f2
 ipconfig | wsl grep -a IPv4 | wsl cut -d: -f2
 ```
 
-## 1.3. Instalación de git en Linux o dentro de WSL ✔
-* Eliminar versiones antiguas de GIT.
-* Agregar repositorio PPA Oficial.
+## 1.3. Instalación de Git en Linux o dentro de WSL ✔
+* Eliminar versiones antiguas de Git incluidas en la distribución.
+* Agregar repositorio oficial de los mantenedores de Git.
 * Actualizar lista de paquetes.
-* Instalar la ultima version de git.
+* Instalar la ultima version de Git.
+* Agregar un <code>usuario</code> y un <code>correo</code> globalmente para Git.
 
 ### 1.3.1. Comandos.
 
@@ -108,18 +109,39 @@ sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt update && sudo apt install git-all -y
 # Verifique la versión
 git --version
+# Para agregar usuario y correo globales a GIT
+$ git config --global user.name "GncDev"
+$ git config --global user.email gncdev@dominio.com
 ```
 
-## 1.3. Pasos adicionales ✔
-* Crear una cuenta en [github][13_1].
-* Instalar [VSCode][13_2]
-* Instalar la [extension de github][13_3] para VScode.
-* Crear un [repositorio nuevo][13_4] en Github.
+## 1.4. Agregar GitHub ✔
+* Crear una cuenta en [GitHub][14_1].
+* Crear un [repositorio nuevo][14_2] en GitHub.
+* Instalar la [extension de GitHub][14_3] para VScode.
+* Clonar [repositorio][14_4] desde VScode.
 
-[13_1]:https://github.com/
-[13_2]:https://code.visualstudio.com/download
-[13_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
-[13_4]:https://github.com/new
+[14_1]:https://github.com/
+[14_2]:https://github.com/new
+[14_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+[14_4]:https://github.com/GiancarloBenavides/Git-Course.git
+
+## 2. [Configuración](#agenda)
+Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso si ya está instalado, probablemente sea una buena idea actualizar a la última versión.
+
+## 2.1. Extensiones de VScode ✔
+* Instalar [corrector ortográfico][21_1].
+* Agregar [diccionario español][21_1].
+* Colorear [indentation][21_3].
+
+[21_1]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[21_2]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
+[21_3]:https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
+
+
+
+* clonar el repositorio remoto desde VScode.
+
+
 
 
 ```bash
@@ -134,23 +156,20 @@ sudo nano -l /usr/lib/git-core/git-sh-prompt
 ```
 
 
+
 Instalar [Git][1_2]
+
 [1_2]:https://git-scm.com/download/win
 
 
 
 
 
-## 2. [Configuración](#agenda)
-* Agregar <code>Usuario</code> y <code>Correo</code> globalmente para Git.
-* clonar el repositorio remoto desde VScode.
 
 
-```bash
-# Para agregar Usuario y Contraseña a GIT
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
-```
+
+
+
 
 ## 2.1. Excluir archivos y carpetas ✔
 * Puedes configurar [Git][21_1] para que ignore archivos que no quieres indexar.

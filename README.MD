@@ -138,7 +138,7 @@ git config --global user.email gncdev@dominio.com
 [14_5]:https://github.com/GiancarloBenavides/Git-Course.git
 
 
-### 1.4.1. Comandos agregar key a ssh.
+### 1.4.1. Comandos agregar clave al agente ssh.
 
 ```bash
 # Crear una clave publica
@@ -167,23 +167,16 @@ git push origin master
 ```
 
 
-## 1.4. Instalación del editor de código ✔
-* Instalar [visual studio code][13_1] en Windows.
-	* (Agregar abrir con code a los menus contextuales).
-	* (Agregar code al PATH code a los menus contextuales).
-* Instalar [extensión WSL][13_2] o el [paquete para desarrollo remoto][13_3].
-* conectar code con wsl.
-* Instalar [extension para corregir ortografía][13_4] y la [extension del idioma][13_5].
-	* Habilitar el diccionario de español.
-* Instalar la [extension de GitHub][14_3] para VScode.
+## 1.5. Instalación del editor de código ✔
+* Instalar [visual studio code][15_1] en Windows.
+	* Agregar abrir con code a los menus contextuales.
+	* Agregar code al PATH code a los menus contextuales.
+* Instalar [extensión WSL][15_2] o el [paquete para desarrollo remoto][15_3].
+* Conectar el editor code con wsl.
 
-[13_1]:https://code.visualstudio.com/download
-[13_2]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
-[13_3]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
-[13_4]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
-[13_5]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
-[14_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
-
+[15_1]:https://code.visualstudio.com/download
+[15_2]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[15_3]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 
 
 ## 2. [Configuración](#agenda)
@@ -193,6 +186,15 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora. Incluso
 * Instalar [corrector ortográfico][21_1].
 * Agregar [diccionario español][21_1].
 * Colorear [indentation][21_3].
+
+
+* Instalar [extension para corregir ortografía][13_4] y la [extension del idioma][13_5].
+	* Habilitar el diccionario de español.
+* Instalar la [extension de GitHub][14_3] para VScode.
+
+[13_4]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[13_5]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
+[14_3]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 
 [21_1]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
 [21_2]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish

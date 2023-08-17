@@ -136,17 +136,12 @@ git config --global user.email gncdev@dominio.com
 ```bash
 # Crear una clave publica
 mkdir ~/.ssh && cd ~/.ssh
-
-id
 ssh-keygen -t ed25519 -f id_github  # sever_name=file=github, pass=***
 eval $(ssh-agent -s)                # start ssh-agent in background
 ssh-add ~/.ssh/id_github
-# Crear un nuevo repositorio local
-git init
-# Clonar un repositorio remoto por http con usuario y contraseña
-git clone https://github.com/GiancarloBenavides/Git-Course.git
-# Clonar un repositorio remoto por http con usuario y contraseña
-git clone https://github.com/GiancarloBenavides/Git-Course.git
+# Clonar un repositorio remoto por ssh sin usuario y contraseña
+git clone git@github.com:GiancarloBenavides/Git-Course.git
+git fetch
 ```
 
 ## 1.4. Instalación del editor de código ✔

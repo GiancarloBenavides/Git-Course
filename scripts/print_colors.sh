@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # 8 standard colors (3 Bits)
 function print_color_3_bits() {
     for C in {40..47}; do 
@@ -97,4 +98,16 @@ function print_color_24_bits() {
     done
 }
 
-print_color_24_bits
+if [ $# -ne 1 ]; then
+    print_color_4_bits
+else
+    if [ $1 -eq 3 ]; then
+        print_color_3_bits
+    elif [ $1 -eq 8 ]; then
+        print_color_8_bits
+    elif [ $1 -eq 24 ]; then
+        print_color_24_bits
+    else
+        print_color_4_bits
+    fi
+fi

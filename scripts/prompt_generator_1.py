@@ -72,7 +72,7 @@ shell = r"\s"
 shell_version = r"\v"
 
 separator = r":"
-prompt = r"$ "
+prompt = r"\$ "
 branch = r"$(__git_ps1)"
 profundidad1 = r"$(expr length ${PWD//[!\/]})"
 profundidad2 = r"$(expr ${PWD//[!\/]} :'.*')"
@@ -83,8 +83,9 @@ profundidad4 = r"$(pwd | grep -o '/' - | wc -l)/"
 ps1 = foreground["Yellow"]+username+foreground["Light Gray"]+separator+foreground["Light Blue"]+profundidad1 + \
     "/"+pwd+foreground["Light Gray"]+separator + \
     foreground["Light Red"]+branch+foreground["Light Gray"]
+
 command = f"PS1='{ps1}{prompt}'"
 
-ps1 = profundidad2
+
 
 print(f"Comando prompt:  {command}")

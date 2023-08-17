@@ -9,9 +9,6 @@
 '''echo -e "\e[48;2;255;0;0m color \e[0m"'''
 
 
-
-
-
 prefix = r"\[\e["
 sufix = r"m\]"
 

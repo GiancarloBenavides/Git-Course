@@ -139,6 +139,14 @@ mkdir ~/.ssh && cd ~/.ssh
 ssh-keygen -t ed25519 -f id_github  # sever_name=file=github, pass=***
 eval $(ssh-agent -s)                # start ssh-agent in background
 ssh-add ~/.ssh/id_github
+# Crear un repositorio y enviar cambios
+mkdir ~/repositorio && cd ~/repositorio
+git init
+echo "Repositorio de prueba" > README.MD
+git add .
+git commit -m "feat: readme initial commit"
+git remote add origin git@github.com:GiancarloBenavides/repositorio
+git push origin master
 # Clonar un repositorio remoto por ssh sin usuario y contraseña
 git clone git@github.com:GiancarloBenavides/Git-Course.git
 git remote -v

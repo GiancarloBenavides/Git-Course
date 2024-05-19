@@ -9,3 +9,9 @@ PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\e[1;31m\]\u@\h\[\e
 
 END
 PS1='\[\e[35m\]\u@\H\[\e[37m\]:\[\e[1;34m\]$(__depth)\W\[\e[33m\]$(__git_ps1)\[\e[0m\]\$\l-\#>'
+
+TEST1
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+TEST2
+PS1='\[\e[1;33m\]\u\[\e[0;37m\]:\[\e[1;34m\]$(expr length ${PWD//[!\/]})/\W\[\e[0;37m\]:\[\e[1;31m\]$(__git_ps1)\[\e[0;37m\]\$ '

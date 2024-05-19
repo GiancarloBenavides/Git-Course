@@ -152,12 +152,24 @@ git config -l
 
 ```bash
 # Crear una clave publica
+# Crear un directorio oculto en la carpeta de usuario de wsl </home/user>
 mkdir ~/.ssh && cd ~/.ssh
-ssh-keygen -t ed25519 -f id_github  	# sever_name=file=github, pass=***
-eval $(ssh-agent -s)                	# start ssh-agent in background
-ssh-add ~/.ssh/id_github
+# Generar un par de llaves para usar con github
+	# -C "gncdev@dominio.com"	:para agregar un comentario al final de la llave
+	# -f id_ed25519 			:para agregar un nombre al archivo
+	# sever_name=file=github, pass=***
+ssh-keygen -t ed25519 -f id_ed25519 -C "gncdev@ntr" 	
+
+# start ssh-agent in background
+eval $(ssh-agent -s)                	
+# Agregue la clave privada al agente ssh
+ssh-add ~/.ssh/id_ed25519
+
+
+
 # Probar SSH con el repositorio remoto (sin usuario y contraseña)
 git clone git@github.com:GiancarloBenavides/Git-Course.git
+# 	Mostrar el nombre y las URL remotas
 git remote -v
 git fetch
 ssh -T git@github.com

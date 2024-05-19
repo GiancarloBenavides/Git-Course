@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# IMPRIMIR COLORES DE CUALQUIER TERMINAL BASH
+# Script para probar todos los colores de la terminal que esten disponibles.
+
 # 8 standard colors (3 Bits)
 function print_color_3_bits() {
     for C in {40..47}; do 

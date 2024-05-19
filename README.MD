@@ -206,15 +206,19 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 * Instalar [indentación][411_3] en colores.
 * Instalar la [extension de GitHub][411_4] para VScode.
 * Instalar la [extension wsl][411_5] para desarrollo remoto.
-* Abrir el repositorio remoto (en WSL) desde VScode.
+* Instalar la [extension iconos][411_6] para desarrollo remoto.
+
 
 [411_1]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
 [411_2]:https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-spanish
 [411_3]:https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
 [411_4]:https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [411_5]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl
+[411_6]:https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+
 
 ### 4.1.2. Excluir archivos y carpetas ✔
+* Abrir el repositorio remoto (en WSL) desde VScode.
 * Puedes configurar [Git][21_1] para que ignore archivos que no quieres indexar.
 * No se hará seguimiento ([versionado][21_2]) de estos archivos o carpetas.
 * No se enviaran al [repositorio remoto][21_3] los cambios realizados en estos archivos.

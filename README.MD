@@ -171,21 +171,21 @@ git clone git@github.com:GiancarloBenavides/Git-Course.git
 ### 3.2. Comandos probar el correcto funcionamiento de ssh ✔
 
 ```bash
-# 	Mostrar el nombre y las URL remotas
-git remote -v
-git fetch
-
 # Si tiene problemas para conectarse a github por SSH
+# 	Verifique que el agente tiene un identificador de proceso asociado
+echo $SSH_AGENT_PID
 # 	Verifique que la clave privada se agrego al agente ssh
 ssh-add -l
-# 	Verifique la conexión con github
-ssh -vT git@github.com
 #   Verifique que las URL remotos están agregados 
 git remote -v
+# 	Verifique la conexión con github
+ssh -vT git@github.com
+# 	Verifique la conexión con el repositorio
+git fetch
 ```
 
 
-### 3.2. Comandos para crear y enviar un repositorio local ✔
+### 3.3. Comandos para crear y enviar un repositorio local ✔
 
 ```bash
 # Crear un repositorio y enviar cambios

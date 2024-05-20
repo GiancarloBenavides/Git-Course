@@ -148,31 +148,40 @@ git config -l
 [3_5]:https://github.com/GiancarloBenavides/Git-Course.git
 
 
-### 3.1. Comandos agregar clave al agente ssh ✔
+### 3.1. Comandos configurar al agente ssh ✔
 
 ```bash
 # Crear una clave publica
 # Crear un directorio oculto en la carpeta de usuario de wsl </home/user>
 mkdir ~/.ssh && cd ~/.ssh
 # Generar un par de llaves para usar con github
-	# -C "gncdev@dominio.com"	:para agregar un comentario al final de la llave
-	# -f id_ed25519 			:para agregar un nombre al archivo
+	# -C "gncdev@dominio"	:para agregar un comentario al final de la llave
+	# -f id_ed25519 		:para agregar un nombre al archivo
 	# sever_name=file=github, pass=***
-ssh-keygen -t ed25519 -f id_ed25519 -C "gncdev@ntr" 	
-
+ssh-keygen -t ed25519 -f id_ed25519 -C "gncdev@dominio.com"
 # start ssh-agent in background
 eval $(ssh-agent -s)                	
 # Agregue la clave privada al agente ssh
 ssh-add ~/.ssh/id_ed25519
-
-
-
 # Probar SSH con el repositorio remoto (sin usuario y contraseña)
 git clone git@github.com:GiancarloBenavides/Git-Course.git
+```
+
+
+### 3.2. Comandos probar el correcto funcionamiento de ssh ✔
+
+```bash
 # 	Mostrar el nombre y las URL remotas
 git remote -v
 git fetch
-ssh -T git@github.com
+
+# Si tiene problemas para conectarse a github por SSH
+# 	Verifique que la clave privada se agrego al agente ssh
+ssh-add -l
+# 	Verifique la conexión con github
+ssh -vT git@github.com
+#   Verifique que las URL remotos están agregados 
+git remote -v
 ```
 
 

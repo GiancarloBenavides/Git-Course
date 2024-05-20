@@ -174,6 +174,7 @@ git clone git@github.com:GiancarloBenavides/Git-Course.git
 # Si tiene problemas para conectarse a github por SSH
 # 	Verifique que el agente tiene un identificador de proceso asociado
 echo $SSH_AGENT_PID
+ps -C ssh-agent
 # 	Verifique que la clave privada se agrego al agente ssh
 ssh-add -l
 #   Verifique que las URL remotos están agregados 
@@ -196,7 +197,7 @@ git add .
 git commit -m "feat: readme initial commit"
 git remote add origin git@github.com:GiancarloBenavides/repositorio
 git push origin master
-# También puede gestionar git desde windows anteponiendo wsl
+# Recuerde que puede gestionar git desde windows anteponiendo wsl
 	# log de los últimos 10 commits en formato de una linea
 wsl git log -10 --oneline
 ```
@@ -243,7 +244,7 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 * Puedes configurar [Git][21_1] para que ignore archivos que no quieres indexar.
 * No se hará seguimiento ([versionado][21_2]) de estos archivos o carpetas.
 * No se enviaran al [repositorio remoto][21_3] los cambios realizados en estos archivos.
-* Cree un archivo [.gitignore][21_4] en el repositorio.
+* Cree un archivo [.gitignore][21_4] en el repositorio desde VSCode.
 * Incluir los [patrones][21_5] a ignorar en el archivo .gitignore.
 
 [21_1]:https://es.wikipedia.org/wiki/Git
@@ -262,9 +263,9 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 !.vscode/extensions.json
 ```
 
-## 5. [Buenas practicas](#agenda)
-* Usar la especificación de [Commits Convencionales][5_1].
-
+## 5. [Recomendaciones](#agenda)
+* Usar la especificación [Commits Convencionales][5_1] para nombrarlos.
+* Personalizar el prompt de la terminal de wsl
 
 [5_1]:https://www.conventionalcommits.org/es/v1.0.0/
 

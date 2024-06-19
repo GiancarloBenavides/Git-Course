@@ -148,33 +148,58 @@ git config -l
 [3_5]:https://github.com/GiancarloBenavides/Git-Course.git
 
 
-### 3.1. Comandos configurar al agente ssh ✔
+### 3.1. Comandos verificar el agente ssh ✔
+```bash
+# Verifique que SSH funcione correctamente
+# 	Verifique la version de ssh y openssl version
+apt list openssh-client
+# 	Instale un cliente SSH
+sudo apt update && sudo apt install openssh-client
+# 	Verifique el agente tiene un identificador de proceso asociado
+ps -C ssh-agent
+# 	Verifique que existen las variables de entorno necesarias $SSH_AGENT_PID, $SSH_AUTH_SOCK
+echo $SSH_AGENT_PID $SSH_AUTH_SOCK
+env | grep -i ssh
+#   Si no se esta ejecutando inicie el ssh-agent in background
+eval $(ssh-agent -s)  
+
+```
+
+
+### 3.2. Comandos configurar al agente ssh ✔
 
 ```bash
-# Crear una clave publica
-# Crear un directorio oculto en la carpeta de usuario de wsl </home/user>
+# Crear un par de claves para ssh (publica:privada)
+# 	Crear un directorio oculto en la carpeta de usuario de wsl </home/user>
 mkdir ~/.ssh && cd ~/.ssh
-# Generar un par de llaves para usar con github
-	# -C "gncdev@dominio"	:para agregar un comentario al final de la llave
-	# -f id_ed25519 		:para agregar un nombre al archivo
-	# sever_name=file=github, pass=***
-ssh-keygen -t ed25519 -f id_ed25519 -C "gncdev@dominio.com"
-# start ssh-agent in background
-eval $(ssh-agent -s)                	
+# 	Generar un par de llaves para usar con github
+		# -C "gncdev@dominio.home"	:para agregar un comentario al final de la llave
+		# -f id_ed25519 		:para agregar un nombre al archivo
+		# sever_name=file=github, pass=***
+ssh-keygen -t ed25519 -f id_ed25519 -C "gncdev@dominio.home"             	
 # Agregue la clave privada al agente ssh
 ssh-add ~/.ssh/id_ed25519
+# Copie el contenido de la clave púbica y agréguelos a las claves en github
+cat ~/.ssh/id_ed25519.pub | clip.exe
 # Probar SSH con el repositorio remoto (sin usuario y contraseña)
 git clone git@github.com:GiancarloBenavides/Git-Course.git
 ```
+>Nota: para ir a la pagina y agregar las claves SSH en github visita el siguiente [enlace][ghssh]
+
+
+[ghssh]:https://github.com/settings/keys
+
 
 
 ### 3.2. Comandos probar el correcto funcionamiento de ssh ✔
 
 ```bash
 # Si tiene problemas para conectarse a github por SSH
-# 	Verifique que el agente tiene un identificador de proceso asociado
+# Verifique que no existen multiples agentes ejecutándose
 echo $SSH_AGENT_PID
 ps -C ssh-agent
+# Elimine los agentes que no coincidan con la variable $SSH_AGENT_PID
+kill -9 {PID}
 # 	Verifique que la clave privada se agrego al agente ssh
 ssh-add -l
 #   Verifique que las URL remotos están agregados 

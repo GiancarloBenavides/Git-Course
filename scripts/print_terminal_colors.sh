@@ -16,13 +16,15 @@ function print_color_3_bits() {
 
 # 16 high intensity colors (4 bits)
 function print_color_4_bits() {
+    # standard colors (3 Bits)
     for C in {40..47}; do 
         if [ $C -eq 47 ]; then
             echo -e "\e[30m\e[${C}m 0$C \e[0m"
         else
             echo -en "\e[37m\e[${C}m 0$C "
         fi
-    done   
+    done
+    # high intensity colors (4 bits)  
     for C in {100..107}; do 
         if [ $C -eq 107 ]; then
             echo -e "\e[30m\e[${C}m $C \e[0m"
@@ -31,6 +33,7 @@ function print_color_4_bits() {
         fi
     done
 }
+
 
 # 256 colors (8 bits)
 function print_color_8_bits() {
@@ -101,16 +104,21 @@ function print_color_24_bits() {
     done
 }
 
-if [ $# -ne 1 ]; then
-    print_color_4_bits
+
+if [ $# -eq 0 ]; then
+    read -p 'Número de bits [3|4|8|24]: ' bits
 else
-    if [ $1 -eq 3 ]; then
-        print_color_3_bits
-    elif [ $1 -eq 8 ]; then
-        print_color_8_bits
-    elif [ $1 -eq 24 ]; then
-        print_color_24_bits
-    else
-        print_color_4_bits
-    fi
+    bits="$1"
 fi
+
+
+if [ $bits -eq 3 ]; then
+    print_color_3_bits
+elif [ $bits -eq 8 ]; then
+    print_color_8_bits
+elif [ $bits -eq 24 ]; then
+    print_color_24_bits
+else
+    print_color_4_bits
+fi
+

@@ -305,4 +305,3 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 - [Hyper-V](https://es.wikipedia.org/wiki/Hyper-V) (Wikipedia)
 - [GIt Book](https://git-scm.com/book/en/v2) (Git-scm)
 - [Reference](https://git-scm.com/docs) (Git-scm)
-- [Video-curso](https://www.youtube.com/watch?v=GwkgaANyjjw&list=PLTd5ehIj0goMCnj6V5NdzSIHBgrIXckGU) (YouTube)

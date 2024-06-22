@@ -94,7 +94,7 @@ ipconfig.exe | grep -a IPv4 | cut -d: -f2
 echo $SHELL
 ```
 
-### 1.2.2. Comandos prueba desde windows.
+#### 1.2.3. Comandos prueba desde windows.
 
 ```ps
 # EN POWERSHELL DE WINDOWS
@@ -251,14 +251,14 @@ git fetch
 [5_3]:https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
 
 
-## 5.1 Configuración del editor de código ✔
+### 5.1. Configuración del editor de código ✔
 Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso si ha instalado la [version compatible][51_1] de git para windows, probablemente sea una buena idea actualizar a la última versión.
 
 
 [51_1]:https://git-scm.com/download/win
 
 
-### 5.1.1. Instalar extensiones básicas de VScode ✔
+#### 5.1.1. Instalar extensiones básicas de VScode.
 * Instalar [corrector ortográfico][511_1].
 * Instalar [diccionario español][511_2].
 * Instalar [indentación][511_3] en colores.
@@ -275,7 +275,7 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 [511_6]:https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
 
 
-### 5.1.2. Excluir archivos y carpetas ✔
+#### 5.1.2. Excluir archivos y carpetas.
 * Abrir el repositorio remoto (en WSL) desde VScode.
 * Puedes configurar [Git][512_1] para que ignore archivos que no quieres indexar.
 * No se hará seguimiento ([versionado][512_2]) de estos archivos o carpetas.
@@ -289,7 +289,7 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 [512_4]:https://git-scm.com/docs/gitignore
 [512_5]:https://github.com/github/gitignore
 
-#### 5.1.2.1. Ejemplo gitignore
+##### 5.1.2.1. Ejemplo gitignore
 ```bash
 # VS Code files for those working on multiple tools
 .vscode/*
@@ -304,4 +304,4 @@ Antes de comenzar a usar Git, debe hacerlo disponible en su computadora; Incluso
 ## Mas Recursos
 - [Hyper-V](https://es.wikipedia.org/wiki/Hyper-V) (Wikipedia)
 - [GIt Book](https://git-scm.com/book/en/v2) (Git-scm)
-- [Reference](https://git-scm.com/docs) (Git-scm)
+- [Git](https://es.wikipedia.org/wiki/Git) (Wikipedia)

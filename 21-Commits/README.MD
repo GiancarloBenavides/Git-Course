@@ -61,7 +61,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 ### 2.2. Utilidades ✔
 * [Commitlint:][22_1] Node Commit linter.
 * [Commit-linter:][22_2] Python commit linter.
-* [commitlint.io][22_3] Online commit linter.
+* [Commitlint.io][22_3] Online commit linter.
 * [Husky:][22_4] Commit and code linter - run tests.
 
 [22_1]:https://commitlint.js.org/
@@ -84,9 +84,9 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 * __Type:__ Agrega un tipo usa un verbo imperativo.
 * __Scope:__ Si es necesario puedes agregar un ámbito.
 * __!:__ Se incluye cuando los cambios rompen la compatibilidad.
-* __description:__ Inicia con un verbo en imperativo.
-* __body:__ Agrega todo el contexto necesario en varias lineas.
-* __footer:__ Si es necesario puedes agregar un ámbito.
+* __Description:__ Inicia con un verbo en imperativo.
+* __Body:__ Agrega todo el contexto necesario en varias lineas.
+* __Footer:__ Si es necesario puedes agregar un ámbito.
 
 
 ### 3.2. Restricciones ✔

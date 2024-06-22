@@ -23,14 +23,14 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 * Sigue y respeta una especificación.
 * Usa o construye una utilidad. 
 
-### 1.1. [Clasificación por complejidad](#agenda)
+### 1.1. Clasificación por complejidad ✔
 * [__fix:__][11_1] esta relacionado con optimizaciones, ajustes menores o correcciones de errores; típicamente agrupados en un PATCH.
 * [__feat:__][11_1] esta relacionado con nuevas funcionalidades que mantienen compatibilidad con hacia atrás; típicamente agrupadas en una version MINOR.
 * [__Breaking-changue:__][11_1] esta relacionado con cambios que no mantienen compatibilidad con la funcionalidad anterior; agrupadas en una version MAYOR.
 
 [11_1]:https://semver.org/lang/es/
 
-### 1.2. [Clasificación por espacio de trabajo](#agenda)
+### 1.2. Clasificación por espacio de trabajo ✔
 * Un ámbito o [scope][12_1] especifica la base de código que afecta el cambio.
 * El ámbito depende del proyecto específico.
 * No debe ser un identificador de problema [issue][12_2].
@@ -47,7 +47,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 * Permiten automatizar procesos.
 * Útiles para mantener un estilo.
 
-### 2.1. [Especificaciones](#agenda)
+### 2.1. Especificaciones ✔
 * [Commits Convencionales][21_1].
 * [Angular Contributing][21_2].
 * [Vue Commit Message Convention][21_3].
@@ -58,7 +58,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 [21_3]:https://github.com/vuejs/core/blob/main/.github/commit-convention.md
 [21_4]:https://github.com/sveltejs/svelte/blob/main/.github/PULL_REQUEST_TEMPLATE.md
 
-### 2.2. [Utilidades](#agenda)
+### 2.2. Utilidades ✔
 * [Commitlint:][22_1] Node Commit linter.
 * [Commit-linter:][22_2] Python commit linter.
 * [commitlint.io][22_3] Online commit linter.
@@ -80,7 +80,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 [OPTIONAL <footer(s)>]
 ```
 
-### 3.1. [Semántica](#agenda)
+### 3.1. Semántica ✔
 * __Type:__ Agrega un tipo usa un verbo imperativo.
 * __Scope:__ Si es necesario puedes agregar un ámbito.
 * __!:__ Se incluye cuando los cambios rompen la compatibilidad.
@@ -89,22 +89,30 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 * __footer:__ Si es necesario puedes agregar un ámbito.
 
 
-### 3.2. [Ejemplos sin contexto](#agenda)
+### 3.2. Restricciones ✔
+* Es posible restringir las opciones de clasificación.
+* El tipo puede uno de [`feat`, `fix`, `refactor`, `revert`, `test`, `ci`, `chore`]
+* El ámbito puede ser uno de [`api`, `web`, `app`]
+
+### 3.3. Ejemplos sin contexto ✔
 ```sh
 # Commit simple
-feat: add email notifications
+fix: fix wrong calculation of request body checksum
 ```
 ```sh
 # Commit scope
-fix(api): fix wrong calculation of request body checksum
+feat(web): add email notifications
 ```
 ```sh
 # Commit breaking-changue
 feat!: remove ticket list endpoint
 ```
+```sh
+# Commit refactor
+refactor: implement calculation as recursion
+```
 
-
-## 3.3. [Ejemplos con contexto](#agenda)
+## 3.4. Ejemplos con contexto ✔
 ```sh
 # Commit breaking-changue
 feat!: remove ticket list endpoint
@@ -115,37 +123,57 @@ BREAKING CHANGES: ticket endpoints no longer supports list all entities.
 ```
 
 ## 4. [Emojis](#agenda)
-| Type     |Emoji| code                   |
-|:---------|:---:|:-----------------------|
-| feat     | ✨ | `:sparkles:`            |
-| fix      | 🐛	| `:bug:`                 |
-| docs     | 📚	| `:books:`               |
-| style    | 💎	| `:gem:`                 |
-| refactor | 🔨	| `:hammer:`              |
-| perf     | 🚀	| `:rocket:`              |
-| test     | 🚨	| `:rotating_light:`      |
-| build    | 📦	| `:package:`             |
-| ci       | 👷 | `:construction_worker:` |
-| chore    | 🔧	| `:wrench:`              |
+* Es un pictograma incrustado en el texto.
+* Están incorporados al estándar Unicode.
+* Disponibles es multiples plataformas.
+* 💥🔥✨🪲🐛🐞🔨♻️🚨✔️📚📖🔧💎🚀📦🎉🔙🔀
 
 
-### 4.1. [Ejemplos con emojis](#agenda)
+### 4.1. Tipos básicos ✔
+| Type      | Version | ⬇️ | VSCode    | Code         |
+|:----------|:--------|:--:|:----------|:-------------|
+| BREAKING: | MAYOR   | 💥 | colisión  | `:boom:`     |
+| feat:     | MINOR   | ✨ | chispas   | `:sparkles:` |
+| fix:      | PATCH   | 🐞 | mariquita | `:ladybird:` |
+| refactor: | PATCH   | ♻️ | reciclaje | `:recycle:`  |
+| chore:    | NONE    | ⚙️ | engranaje | `:gear:`     |
+
+
+### 4.2. Subtipos ✔
+|  Type     | Subtype | ⬇️ | VSCode  | Code         |
+|:----------|:--------|:--:|:--------|:-------------|
+| refactor: | secure: | 🛡️ | escudo  | `:shield:`   |
+|		    | style:  | 💄 | labial  | `:lipstick:` |
+|           | perf:   | ⚡ | voltaje | `:zap:`      |
+| chore:    | docs:   | 📝 | memo    | `:memo:`     |
+|           | test:   | 👀 | ojos    | `:eyes:`     |
+|           | ci:     | 🤖 | robot   | `:robot:`    |
+|           | build:  | 🚀 | cohete  | `:rocket:`   |
+
+
+### 4.4. [Ejemplos con emojis](#agenda)
 ```sh
 # Commit simple
 ✨ add email notifications
 ```
 ```sh
 # Commit scope
-🐛 (api) fix wrong calculation of request body checksum
+🐞 (api) fix wrong calculation of request body checksum
 ```
 ```sh
 # Commit breaking-changue
-🔥 remove ticket list endpoint
+💥 remove ticket list endpoint
 ```
+```sh
+# Commit refactor
+♻️ implement calculation as recursion
+```
+
 
 ---
 ## Mas Recursos
-- [Commits convencionales](https://www.conventionalcommits.org/es/v1.0.0/#especificaci%c3%b3n) (Conventional Commits)
+- [Sistema de control de versiones](https://es.wikipedia.org/wiki/Control_de_versiones) (Wikipedia)
+- [Guías de código abierto](https://opensource.guide/es/) (OpenSource)
 - [Versionado semántico](https://semver.org/lang/es/) (semver)
-- [Control de versiones](https://es.wikipedia.org/wiki/Control_de_versiones) (Wikipedia)
+- [Especificación](https://www.conventionalcommits.org/es/v1.0.0/#especificación) (Conventional Commits)
 - [Commit](https://en.wikipedia.org/wiki/Commit_(version_control)) (Wikipedia)

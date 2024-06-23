@@ -1,5 +1,7 @@
-# Byte-compiled / optimized / DLL files
+# temp files (manual config)
 .vscode/*
+.temp/*
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class

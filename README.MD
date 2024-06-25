@@ -16,10 +16,12 @@
 ## Contenido
 1. [Instalación de todas las herramientas][11].
 1. [Guía de estilo para nombrar los cambios][21].
+1. [Casos de uso de los comandos Git][31].
 
 
 [11]:https://github.com/GiancarloBenavides/Git-Course/tree/master/11-Instalar-git
 [21]:https://github.com/GiancarloBenavides/Git-Course/tree/master/21-Commits
+[21]:https://github.com/GiancarloBenavides/Git-Course/tree/master/31-Comandos
 
 
 </br>

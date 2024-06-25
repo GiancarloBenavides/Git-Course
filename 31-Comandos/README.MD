@@ -16,7 +16,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 ---
 ## 1. [Comandos básicos](#agenda)
 
-![git areas](../img/git-basic-command.svg)
+![git basic command](../img/git-command-basic.svg)
 
 ### 1.1. Para iniciar configurar y visualizar ✔
 |Función|Ejemplos de comandos|
@@ -101,7 +101,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 
 ### 4.1. restaurar cambios ✔
 
-![git areas](../img/git-restore-command.svg)
+![git restore command](../img/git-command-restore.svg)
 
 
 ### 4.2. Comparar ✔

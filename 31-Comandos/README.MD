@@ -58,6 +58,7 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 |Id del commit al que apunta master|`cat .git/refs/heads/master`|
 |Id del commit al que apunta HEAD|<code> cat .git/$(cat .git/HEAD &#124; cut -c 6-)</code>|
 |Id del 3er commit antes del último|`git show -s --format=%h HEAD~3`|
+|Visualizar las referencias del indice|`git reflog`|
 
 
 ### 2.1. Creación de etiquetas ✔
@@ -113,15 +114,17 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 
 ![git restore command](../img/git-command-restore.svg)
 
-### 4.1. Restaurar cambios ✔
+### 4.1. Restaurar o eliminar cambios ✔
 |Función|Ejemplos de comandos|
 |:--|:--|
-|Restaurar archivos hasta el ultimo commit|`git restore`|
-|Restaurar archivos incluyendo staying area|`git restore --stayed --worktree`|
-|Deshacer los últimos 2 commit|`git reset --soft HEAD~2`|
-|Deshacer los cambios en los últimos 2 commit|`git reset --hard HEAD~2`|
-|Recuperar el estado a commit|`git revert e902310`|
+|🛑Restaurar un archivo hasta el ultimo commit|`git restore main.py`|
+|🛑Restaurar archivo incluyendo staying area|`git restore -SW main.py`|
+|⚠️Deshacer los últimos 2 commit|`git reset --soft HEAD~2`|
+|🛑Deshacer los cambios en los últimos 2 commit|`git reset --hard HEAD~2`|
+|⚠️Recuperar el estado a un commit del historial|`git revert e902310`|
+|🛑Eliminar archivos sin seguimiento|`git clean`|
 
+>Nota: los comandos marcados con 🛑 pueden destruir información.
 
 ### 4.2. Revisar y comparar cambios ✔
 |Función|Ejemplos de comandos|

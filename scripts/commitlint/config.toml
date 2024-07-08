@@ -3,26 +3,30 @@
 
 title = "TOML config"
 
+[commit]
+minimum_length = 7
+maximum_length = 50
+allowed_capitalize = false
+required_spaces = true
+show_clean = true
+show_warning = true
+
 [component]
 [component.emoji]
 allowed = true
 required = true
-any_values = true
+any_values = false
 
 [component.type]
-allowed = true
-required = true
-any_values = true
+allowed = false
+required = false
+any_values = false
 
 [component.scope]
 allowed = true
 required = true
-any_values = true
+any_values = false
 
-[component.message]
-allowed = true
-required = true
-any_values = true
 
 [types]
 BREAKING = [':boom:', '💥']

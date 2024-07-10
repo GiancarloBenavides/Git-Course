@@ -16,16 +16,19 @@ show_warning = true
 allowed = true
 required = true
 any_values = false
+delimiter = " "
 
 [component.type]
 allowed = false
 required = false
 any_values = false
+delimiter = ":"
 
 [component.scope]
 allowed = true
 required = true
 any_values = false
+delimiter = "()"
 
 
 [types]

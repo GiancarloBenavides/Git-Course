@@ -21,11 +21,11 @@
 
 [11]:https://github.com/GiancarloBenavides/Git-Course/tree/master/11-Instalar-git
 [21]:https://github.com/GiancarloBenavides/Git-Course/tree/master/21-Commits
-[21]:https://github.com/GiancarloBenavides/Git-Course/tree/master/31-Comandos
+[31]:https://github.com/GiancarloBenavides/Git-Course/tree/master/31-Comandos
 
 
 </br>
 
 ---
 ### Objetivo
-Desarrollar en el estudiante las competencias en la gestión de los cambios que se realizan sobre los elementos de algún producto o una configuración del mismo que le permita gestionar la evolución de un producto en entornos colaborativos.
+Desarrollar en el estudiante las competencias en la gestión de los cambios que se realizan sobre los elementos de algún producto o una configuración del mismo que le permita gestionar la evolución de un producto en entornos colaborativos.3

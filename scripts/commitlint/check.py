@@ -2,6 +2,7 @@ import os
 import tomli
 import emoji as em
 
+from clean import clean_commit
 from structure import get_structure
 from validate import check_validity
 from messages import es as MSG
@@ -19,59 +20,6 @@ def load_commit():
     commit = input(MSG["FOR_INPUT"] + ' [↓] \n')
     if len(commit) <= 2:
         load_commit()
-
-    return commit
-
-
-def clean_start(message: str) -> str:
-    if message[0] == " ":
-        message = message[1:]
-        clean_start(message)
-    return message
-
-
-def clean_end(message: str) -> str:
-    if message[-1] == " " or message[-1] == ".":
-        message = message[:-1]
-        clean_end(message)
-    return message
-
-
-def clean_commit(commit: str, warn: list):
-    len_min = conf["commit"]["minimum_length"]
-    len_max = conf["commit"]["maximum_length"]
-    r_space = conf["commit"]["required_spaces"]
-
-    position_ds = commit.find("  ")
-    if position_ds > 0:
-        commit = commit.replace("  ", " ")
-        warn.append(MSG["FOR_BODY"])
-
-    if commit[0] == " ":
-        warn.append(MSG["FOR_START"])
-        commit = clean_start(commit)
-
-    if commit[-1] == " " or commit[-1] == ".":
-        warn.append(MSG["FOR_END"])
-        commit = clean_end(commit)
-
-    if len(commit) < len_min:
-        warn.append(MSG["FOR_MIN"])
-
-    if len(commit) > len_max:
-        warn.append(MSG["FOR_MAX"])
-
-    if r_space:
-        if commit.find(":") != 0:
-            delimiter = commit.find(":")
-        else:
-            delimiter = commit.find(":", 1)
-            if delimiter != -1:
-                delimiter = commit.find(":", delimiter+1)
-
-        if delimiter != -1 and not (commit[delimiter+1] == " "):
-            warn.append(MSG["FOR_NO_SPACE"])
-            commit.replace(":", ": ")
 
     return commit
 
@@ -102,7 +50,7 @@ def report(debug: bool = False):
         if not conf["component"]["emoji"]["any_values"] and not response["allowed"]["emoji"]:
             errors += 1
             print("❌  ", MSG["EMJ_NOT_ALLOWED"])
-    # si no lo encontró y era requerido
+    # sfix i no lo encontró y era requerido
     elif conf["component"]["emoji"]["required"]:
         errors += 1
         print("❌  ", MSG["EMJ_EMPTY"])
@@ -153,13 +101,14 @@ def report(debug: bool = False):
 def main():
     global conf, structure
     has, allowed = {}, {}
-    response["warnings"] = []
+    warn = []
     # os.system('clear').
     conf = load_config()
     commit = load_commit()
-    commit = clean_commit(commit, response["warnings"])
+    commit = clean_commit(commit, warn, conf)
     structure, has = get_structure(commit)
     allowed = check_validity(structure, conf)
+    response["warnings"] = warn
     response["has"] = has
     response["allowed"] = allowed
     report(debug=True)

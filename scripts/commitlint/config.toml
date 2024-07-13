@@ -7,7 +7,6 @@ title = "TOML config"
 minimum_length = 7
 maximum_length = 50
 allowed_capitalize = false
-required_spaces = true
 show_clean = true
 show_warning = true
 
@@ -16,19 +15,22 @@ show_warning = true
 allowed = true
 required = true
 any_values = false
-delimiter = " "
+required_end_spaces = true
 
 [component.type]
 allowed = false
 required = false
 any_values = false
-delimiter = ":"
+required_end_spaces = true
+split_delimiter = ":"
 
 [component.scope]
 allowed = true
 required = true
 any_values = false
-delimiter = "()"
+required_end_spaces = true
+start_delimiter = "("
+end_delimiter = ")"
 
 
 [types]

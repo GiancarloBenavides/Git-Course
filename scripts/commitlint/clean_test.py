@@ -47,6 +47,11 @@ def test_has_no_required_scope_spaces_true_false():
         "message(without) space") == (True, False)
 
 
+def test_has_no_required_scope_spaces_false_true():
+    assert has_no_required_scope_spaces(
+        "message (without)space") == (False, True)
+
+
 def test_has_no_required_scope_spaces_false():
     assert has_no_required_scope_spaces(
         "message (without) space") == (False, False)

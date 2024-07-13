@@ -1,4 +1,4 @@
-from messages import es as MSG
+from .messages import es as MSG
 
 
 def remove_double_spaces(message: str) -> str:
@@ -79,7 +79,7 @@ def clean_commit(commit: str, warn: list, conf: dict):
         warn.append(MSG["FOR_NO_SPACE"])
         commit = commit.replace(delimiter, " "+delimiter[1])
 
-    if required_scope_spaces and has_no_required_scope_spaces(commit, start, end)[0]:
+    if required_scope_spaces and has_no_required_scope_spaces(commit, start, end)[1]:
         warn.append(MSG["FOR_NO_SPACE"])
         commit = commit.replace(delimiter, delimiter[0]+" ")
 

@@ -28,7 +28,7 @@ split_delimiter = ":"
 allowed = true
 required = true
 any_values = false
-required_end_spaces = true
+required_spaces = true
 start_delimiter = "("
 end_delimiter = ")"
 

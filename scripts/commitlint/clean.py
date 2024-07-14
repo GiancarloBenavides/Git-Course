@@ -1,6 +1,3 @@
-from .messages import es as MSG
-
-
 def remove_double_spaces(message: str) -> str:
     if message.count("  "):
         message = remove_double_spaces(message.replace("  ", " "))
@@ -44,43 +41,44 @@ def has_no_required_scope_spaces(message: str, start: str = "(", end: str = ")")
     return False, False
 
 
-def clean_commit(commit: str, warn: list, conf: dict):
+def clean_commit(commit: str, warn: list, conf: dict, locals: dict):
     required_type_spaces = conf["component"]["type"]["required_end_spaces"]
-    required_scope_spaces = conf["component"]["scope"]["required_end_spaces"]
+    required_scope_spaces = conf["component"]["scope"]["required_spaces"]
 
-    if commit.find("  ") > 0:
-        warn.append(MSG["FOR_BODY"])
+    if commit.find("  ") >= 0:
+        warn.append(locals["FOR_BODY"])
         commit = remove_double_spaces(commit)
 
     if commit[0] == " ":
-        warn.append(MSG["FOR_START"])
+        warn.append(locals["FOR_START"])
         commit = clean_start(commit)
 
     if commit[-1] == " " or commit[-1] == ".":
-        warn.append(MSG["FOR_END"])
+        warn.append(locals["FOR_END"])
         commit = clean_end(commit)
 
     len_min = conf["commit"]["minimum_length"]
     len_max = conf["commit"]["maximum_length"]
     if len(commit) < len_min:
-        warn.append(MSG["FOR_MIN"])
+        warn.append(locals["FOR_MIN"])
 
     if len(commit) > len_max:
-        warn.append(MSG["FOR_MAX"])
+        warn.append(locals["FOR_MAX"])
 
     delimiter = conf["component"]["type"]["split_delimiter"]
     if required_type_spaces and has_no_required_type_spaces(commit, delimiter):
-        warn.append(MSG["FOR_NO_SPACE"])
+        warn.append(locals["FOR_NO_SPACE"])
         commit = commit.replace(delimiter, delimiter+" ")
 
     start = conf["component"]["scope"]["start_delimiter"]
-    end = conf["component"]["scope"]["start_delimiter"]
-    if required_scope_spaces and has_no_required_scope_spaces(commit, start, end)[0]:
-        warn.append(MSG["FOR_NO_SPACE"])
-        commit = commit.replace(delimiter, " "+delimiter[1])
-
-    if required_scope_spaces and has_no_required_scope_spaces(commit, start, end)[1]:
-        warn.append(MSG["FOR_NO_SPACE"])
-        commit = commit.replace(delimiter, delimiter[0]+" ")
+    end = conf["component"]["scope"]["end_delimiter"]
+    spaces = has_no_required_scope_spaces(commit, start, end)
+    if required_scope_spaces and (spaces[0] or spaces[1]):
+        warn.append(locals["FOR_NO_SPACE"])
+        if spaces[0]:
+            commit = commit.replace(start, " "+start)
+        
+        if spaces[1]:
+            commit = commit.replace(end, end+" ")
 
     return commit

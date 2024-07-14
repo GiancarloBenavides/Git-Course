@@ -38,20 +38,20 @@ def test_has_no_required_type_spaces_false():
 
 
 def test_has_no_required_scope_spaces_true():
-    assert has_no_required_scope_spaces(
-        "message(without)space") == (True, True)
+    message = "message(without)space"
+    assert has_no_required_scope_spaces(message) == (True, True)
 
 
 def test_has_no_required_scope_spaces_true_false():
-    assert has_no_required_scope_spaces(
-        "message(without) space") == (True, False)
+    message = "message(without) space"
+    assert has_no_required_scope_spaces(message) == (True, False)
 
 
 def test_has_no_required_scope_spaces_false_true():
-    assert has_no_required_scope_spaces(
-        "message (without)space") == (False, True)
+    message = "message (without)space"
+    assert has_no_required_scope_spaces(message) == (False, True)
 
 
 def test_has_no_required_scope_spaces_false():
-    assert has_no_required_scope_spaces(
-        "message (without) space") == (False, False)
+    message = "message (without) space"
+    assert has_no_required_scope_spaces(message) == (False, False)

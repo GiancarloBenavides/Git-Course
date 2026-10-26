@@ -223,6 +223,10 @@ git merge feature/login-screen
 
 ## 4. [Integración y entrega continua - CI/CD](#agenda)
 
+![Continuous Delivery vs Deployment](../img/git-cicd.svg)
+
+### 4.1. Ventajas ✔
+
 - Proceso de despliegue sencillo y repetible.
 - Combina [integración continua][4_1], [entrega continua][4_2] y/o [Despliegue continuo][4_3].
 - Apoyado en herramientas que ofrecen servicios de pruebas automatizadas.
@@ -233,8 +237,6 @@ git merge feature/login-screen
 [4_1]: https://es.wikipedia.org/wiki/Integraci%C3%B3n_continua
 [4_2]: https://es.wikipedia.org/wiki/Entrega_continua
 [4_3]: https://en.wikipedia.org/wiki/Continuous_deployment
-
-![Continuous Delivery vs Deployment](https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Continuous_Delivery_Vs._Continuous_Deployment.svg/330px-Continuous_Delivery_Vs._Continuous_Deployment.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)
 
 ### 4.1. ¿Como se hace? ✔
 

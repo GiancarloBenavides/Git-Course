@@ -230,11 +230,11 @@ git merge feature/login-screen
 
 ### 4.2. GitHub Actions ✔
 
-- En github se usa un [archivo yaml][4_2] para configurar el flujo de trabajo.
+- En github se usa un [archivo yaml][42_1] para configurar el flujo de trabajo.
 - El **flujo** se agrega a la carpeta .github/workflows/
 - **GitHub Actions** ejecutará este flujo automáticamente
 
-[4_2]: https://github.com/GiancarloBenavides/Git-Course/tree/master/41-Flujo-de-trabajo/ci.deploy.yml
+[42_1]: https://github.com/GiancarloBenavides/Git-Course/tree/master/41-Flujo-de-trabajo/ci.deploy.yml
 
 ---
 

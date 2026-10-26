@@ -97,29 +97,29 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 ### 2.3. Flujo de Trabajo en Git ✔
 
 ```mermaid
+---
+title: Example Git diagram
+---
 gitGraph
     commit id: "Initial Commit"
     branch develop
     checkout develop
-    commit id: "Configuración Base"
-    
+    commit id: "Base configuration"
+
     branch feature/login-screen
     checkout feature/login-screen
     commit id: "✨ add login structure"
     commit id: "🛡️ implement secure login"
-    
+
     checkout develop
     commit id: "Cambio paralelo de equipo"
-    
+
     checkout feature/login-screen
     commit id: "🐞 fix login-screen"
-    
-    note over feature/login-screen: 🛑 Push directo a main/develop RECHAZADO por Ruleset
-    note over feature/login-screen: 🚀 Pull Request abierta hacia 'develop'
-    
+
     checkout develop
     merge feature/login-screen id: "Merge PR #1: feature/login-screen"
-    
+
     checkout main
     merge develop id: "🚀 Release v1.0.0"
 ```

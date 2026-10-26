@@ -121,11 +121,11 @@ gitGraph
 
 ### 2.4. Reglas de oro para que la integración funcione mejor ✔
 
-- La rama principal `main` es sagrada, protegela.
+- La rama principal `main` es sagrada, protégela.
 - Procura que la rama de desarrollo siempre este actualizadas (`pull`).
 - Evita tocar archivos fuera de tu responsabilidad.
-- Usa todas las herramientas de protección que ofrece la plataforma.
-- Crea una [plantilla][24_1] para tus PR
+- Usa todas las herramientas de protección de ramas que ofrece la plataforma.
+- Crea una [plantilla para tus Pull Requests][24_1].
 
 [24_1]: https://github.com/GiancarloBenavides/Git-Course/tree/master/41-Flujo-de-trabajo/pull_request_template.md
 

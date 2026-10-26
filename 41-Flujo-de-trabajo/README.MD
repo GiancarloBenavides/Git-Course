@@ -98,30 +98,25 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 
 ```mermaid
 ---
-title: Example Git diagram
+title: ➡️ Flujo de trabajo para crear la pantalla de inicio ➡️
 ---
 gitGraph
     commit id: "Initial Commit"
     branch develop
     checkout develop
     commit id: "Base configuration"
-
     branch feature/login-screen
     checkout feature/login-screen
     commit id: "✨ add login structure"
     commit id: "🛡️ implement secure login"
-
     checkout develop
     commit id: "Cambio paralelo de equipo"
-
     checkout feature/login-screen
     commit id: "🐞 fix login-screen"
-
     checkout develop
     merge feature/login-screen id: "Merge PR #1: feature/login-screen"
-
     checkout main
-    merge develop id: "🚀 Release v1.0.0"
+    merge develop id: "🚀 Release v0.0.1"
 ```
 
 ### 2.4. Reglas de oro para que la integración funcione mejor ✔
@@ -130,7 +125,9 @@ gitGraph
 - Procura que la rama de desarrollo siempre este actualizadas (`pull`).
 - Evita tocar archivos fuera de tu responsabilidad.
 - Usa todas las herramientas de protección que ofrece la plataforma.
--
+- Crea una [plantilla][24_1] para tus PR
+
+[24_1]: https://github.com/GiancarloBenavides/Git-Course/tree/master/41-Flujo-de-trabajo/pull_request_template.md
 
 ## 3. [Estrategias de ramificación](#agenda)
 

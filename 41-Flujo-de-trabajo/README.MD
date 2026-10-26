@@ -10,8 +10,9 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 ## Agenda
 
 1. [Plataformas en la nube](#1-plataformas-en-la-nube).
-1. [Protección y ciclo de vida](#3-protección-y-ciclo-de-vida).
-1. [Estrategias de ramificación](#2-estrategias-de-ramificación).
+1. [Protección y ciclo de vida](#2-protección-y-ciclo-de-vida).
+1. [Estrategias de ramificación](#3-estrategias-de-ramificación).
+1. [Integración y entrega continua - CI/CD](#4-integración-y-entrega-continua---cicd).
 
 <br>
 
@@ -26,17 +27,17 @@ Confirmar los cambios requiere agregar un mensaje corto y explicito que describa
 
 ### 1.1. Servicios web mas populares ✔
 
-| Característica              | [GitHub][11_1]                      | [GitLab][11_2]      | [Bitbucket][11_3]          |
-| :-------------------------- | :---------------------------------- | :------------------ | :------------------------- |
-| Fundación                   | 2008                                | 2011                | 2008                       |
-| Propietario                 | Microsoft                           | GitLab              | Atlassian                  |
-| Open Source                 | Núcleo privativo                    | Community Edition   | Código privativo           |
-| CI/CD Integrado             | GitHub Actions                      | GitLab CI/CD nativo | Bitbucket Pipelines nativo |
-| Entrada Precio/mes          | [4 - 21][11_4]                      | [29][11_5]          | [3.65 - 8][11_6]           |
-| Repositorios publico        | Sí, ilimitado                       | Sí, ilimitado       | Sí, ilimitado              |
-| Almacenamiento privado - RP | 1GB                                 | 10GB                | 2GB                        |
-| Minutos/mes de CI/CD en RP  | 2.000                               | 400                 | 50                         |
-| Ideal para                  | Portfolios, Open Source, Personales | DevOps todo en uno  | si usas Jira               |
+| Característica              | [GitHub][11_1]          | [GitLab][11_2]      | [Bitbucket][11_3]          |
+| :-------------------------- | :---------------------- | :------------------ | :------------------------- |
+| Fundación                   | 2008                    | 2011                | 2008                       |
+| Propietario                 | Microsoft               | GitLab              | Atlassian                  |
+| Open Source                 | Núcleo privativo        | Community Edition   | Código privativo           |
+| CI/CD Integrado             | GitHub Actions          | GitLab CI/CD nativo | Bitbucket Pipelines nativo |
+| Entrada Precio/mes          | [4 - 21][11_4]          | [29][11_5]          | [3.65 - 8][11_6]           |
+| Repositorios publico        | Sí, ilimitado           | Sí, ilimitado       | Sí, ilimitado              |
+| Almacenamiento privado - RP | 1GB                     | 10GB                | 2GB                        |
+| Minutos/mes de CI/CD en RP  | 2.000                   | 400                 | 50                         |
+| Ideal para                  | Open Source, Personales | DevOps todo en uno  | Si usas Jira               |
 
 [11_1]: https://es.wikipedia.org/wiki/GitHub
 [11_2]: https://es.wikipedia.org/wiki/GitLab
@@ -122,7 +123,7 @@ gitGraph
 ### 2.4. Reglas de oro para que la integración funcione mejor ✔
 
 - La rama principal `main` es sagrada, protégela.
-- Procura que la rama de desarrollo siempre este actualizadas (`pull`).
+- Procura que la rama de desarrollo siempre este actualizada (`pull`).
 - Evita tocar archivos fuera de tu responsabilidad.
 - Usa todas las herramientas de protección de ramas que ofrece la plataforma.
 - Crea una [plantilla para tus Pull Requests][24_1].
@@ -199,14 +200,41 @@ git push
 # Para crear una nueva Pull Requests desde consola usando GitHub CLI
 gh pr create --title "Título de tu PR" \
              --body "Descripción detallada de los cambios" \
-             --base develop \
-             --draft \
-             --web
+             --base develop \                                       # Especifica la rama de destino
+             --draft \                                              # Crea la PR en modo borrador
+             --web                                                  # Abre la PR en tu navegador web tras crearla
 
 # Para agregar fusionar cambios a la rama principal después de la PR
 git switch main
 git merge feature/login-screen
 ```
+
+## 4. [Integración y entrega continua - CI/CD](#agenda)
+
+- Proceso de despliegue sencillo y repetible.
+- Combina [integración continua][4_1], [entrega continua][4_2] y/o [Despliegue continuo][4_3].
+- Apoyado en herramientas que ofrecen servicios de pruebas automatizadas.
+- Mejora la detección temprana de defectos.
+- Mejora la velocidad de liberación y la productividad.
+- Mejora la satisfacción del cliente.
+
+[4_1]: https://es.wikipedia.org/wiki/Integraci%C3%B3n_continua
+[4_2]: https://es.wikipedia.org/wiki/Entrega_continua
+[4_3]: https://en.wikipedia.org/wiki/Continuous_deployment
+
+### 4.1. ¿Como se hace? ✔
+
+- Agrega las **pruebas automáticas de código** (Lint, check y vitest).
+- Activa las pruebas cuando se envíe código **Push** hacia las ramas principales.
+- Activa las pruebas cuando se solicite un **Pull Request** hacia la rama main.
+
+### 4.2. GitHub Actions ✔
+
+- En github se usa un [archivo yaml][4_2] para configurar el flujo de trabajo.
+- El **flujo** se agrega a la carpeta .github/workflows/
+- **GitHub Actions** ejecutará este flujo automáticamente
+
+[4_2]: https://github.com/GiancarloBenavides/Git-Course/tree/master/41-Flujo-de-trabajo/ci.deploy.yml
 
 ---
 
@@ -214,3 +242,5 @@ git merge feature/login-screen
 
 - [Ramificación](<https://en.wikipedia.org/wiki/Branching_(version_control)>) (Wikipedia)
 - [Estrategias de creación de ramas](https://www.atlassian.com/es/agile/software-development/branching) (Atlassian)
+- [Ruleset](https://docs.github.com/es/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) (GitHub)
+- [Proteger ramas](https://docs.github.com/es/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) (GitHub)

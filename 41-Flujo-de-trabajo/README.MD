@@ -165,14 +165,15 @@ gitGraph
 
 ### 3.3. Tabla Comparativa: GitFlow vs GitHub Flow ✔
 
-| Característica           | GitFlow                                         | GitHub Flow                                  |
-| :----------------------- | :---------------------------------------------- | :------------------------------------------- |
-| Ramas principales        | `main` `develop` (producción y desarrollo)      | Únicamente `main`                            |
-| Ramas de soporte         | `feature/*`, `release/*`, `hotfix/*`            | `feature/*` de vida corta                    |
-| Complejidad              | `Alta`; protocolo estricto                      | `Baja`; simple y ligera                      |
-| Ciclo de lanzamientos    | versioned releases                              | Continuous Delivery                          |
-| Corrección en producción | Mediante ramas `hotfix/*` desde `main`          | directamente desde `main`                    |
-| Ideal para               | Equipos grandes y [Waterfall development][33_1] | Equipos pequeños y [Agile development][33_2] |
+| Característica           | GitFlow                                    | GitHub Flow               |
+| :----------------------- | :----------------------------------------- | :------------------------ |
+| Ramas principales        | `main` `develop` (producción y desarrollo) | Únicamente `main`         |
+| Ramas de soporte         | `feature/*`, `release/*`, `hotfix/*`       | `feature/*` de vida corta |
+| Complejidad              | `Alta`; protocolo estricto                 | `Baja`; simple y ligera   |
+| Ciclo de lanzamientos    | versioned releases                         | Continuous Delivery       |
+| Corrección en producción | Mediante ramas `hotfix/*` desde `main`     | directamente desde `main` |
+| Tamaño ideal del equipo  | Equipos grandes                            | Equipos pequeños          |
+| Ideal para               | [Waterfall development][33_1]              | [Agile development][33_2] |
 
 [33_1]: https://es.wikipedia.org/wiki/Desarrollo_en_cascada
 [33_2]: https://es.wikipedia.org/wiki/Desarrollo_%C3%A1gil_de_software
@@ -209,6 +210,17 @@ git switch main
 git merge feature/login-screen
 ```
 
+### 3.6. Quien toma las decisiones ✔
+
+- **Arquitecto de Software ([Tech Lead][36_1]):** suele diseñar la estrategia de ramificación (branching strategy).
+- **Administradores del Repositorio ([Administrators][36_2]):** Acceso total al repositorio.
+- **Mantenedores del Repositorio ([Maintainers][36_2]):** configuran las restricciones (Branch Policies).
+- **Colaboradores ([Collaborator][36_2]):** insertan cambios activamente en el proyecto.
+
+[36_1]: https://en.wikipedia.org/wiki/Software_architect
+[36_2]:https://docs.github.com/es/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
+
+
 ## 4. [Integración y entrega continua - CI/CD](#agenda)
 
 - Proceso de despliegue sencillo y repetible.
@@ -221,6 +233,8 @@ git merge feature/login-screen
 [4_1]: https://es.wikipedia.org/wiki/Integraci%C3%B3n_continua
 [4_2]: https://es.wikipedia.org/wiki/Entrega_continua
 [4_3]: https://en.wikipedia.org/wiki/Continuous_deployment
+
+![Continuous Delivery vs Deployment](https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Continuous_Delivery_Vs._Continuous_Deployment.svg/330px-Continuous_Delivery_Vs._Continuous_Deployment.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)
 
 ### 4.1. ¿Como se hace? ✔
 
